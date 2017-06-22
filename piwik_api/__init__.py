@@ -8,19 +8,14 @@ from .base import BaseModule
 
 class PiwikAPI:
 
-    """Piwik Reporting API client class.
-
-    The official client, https://github.com/piwik/piwik-python-api,
-    is unmaintained and deprecated. This is our minimal re-implementation
-    of the reporting API.
-    """
+    """Piwik Reporting API client class."""
 
     REQUEST_ARGS = {
         'format': 'json',
         'module': 'API'
     }
 
-    def __init__(self, url, token=None):
+    def __init__(self, url, token):
         """Set up the API client instance."""
         self.url = url
         self.REQUEST_ARGS['token_auth'] = token

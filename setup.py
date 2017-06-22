@@ -1,4 +1,4 @@
-"""Setuptools file for piwik-reporting."""
+"""Setuptools file for piwik-api."""
 
 import os
 from setuptools import setup
@@ -11,11 +11,14 @@ def read(fname):
 
 
 setup(
-    name='piwik-reporting',
-    description=read('README.md'),
-    version='0.1',
+    name='piwik-api',
+    description='Client library for the Piwik Reporting API',
+    long_description=read('README.rst'),
+    version='0.1.1',
     author='Anton Sarukhanov',
-    author_email='antsar@oit.rutgers.edu',
+    author_email='code@ant.sr',
+    url='https://github.com/antsar/piwik-api',
+    download_url='https://github.com/antsar/piwik-api/archive/master.zip',
     license='MIT',
     packages=find_packages(),
     install_requires=[
