@@ -1,24 +1,24 @@
 # Piwik-Reporting
 
-A Python 3 client for the Piwik Reporting API.
+A Python 3 client library for the [Piwik Reporting API](https://developer.piwik.org/api-reference/reporting-api).
 
-Very few API calls are currently implemented; but contributions are welcome.
-Piwik Tracking API is not supported, as other libraries exist for that.
+The [Piwik Tracking API](https://developer.piwik.org/api-reference/tracking-api)
+is not supported.
 
 # Example Usage
 
 ```
-from piwik_reporting import PiwikReportingAPI
+from piwik_reporting import PiwikAPI
 
-p = PiwikReportingAPI(url='https://piwik.example.com',
+p = PiwikAPI(url='https://piwik.example.com',
                       token='e9f31a88fce426cd27aa4734ace348b8')
 
 # Get list of sites with activity today
-sites = p.multisites.getAll(period='day', date='today')
+sites = p.MultiSites.getAll(period='day', date='today')
 
 # Get stats for all pages, filtered by date range
 from datetime import date
-pages = p.actions.getPageURLs(site_id=1, period='range', date=date(2017, 6, 1),
+pages = p.Actions.getPageURLs(idSite=1, period='range', date=date(2017, 6, 1),
                               end_date=date(2017, 6, 15))
 ```
 
