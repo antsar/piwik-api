@@ -1,7 +1,8 @@
 """Partial implementation of a Piwik Reporting API Client."""
 
-import requests
+from urllib.parse import urlencode
 from json.decoder import JSONDecodeError
+import requests
 from . import modules
 from .base import BaseModule
 
@@ -48,7 +49,7 @@ class PiwikAPI:
             raise PiwikAPIError(json.get('message'))
         return json
 
-    def bulk_request(self, requests=[], http_method='GET'):
+    def bulk_request(self, requests=[]):
         """Make multiple requests at once.
 
         Args:
@@ -60,9 +61,9 @@ class PiwikAPI:
         """
         request_args = {
             'method': 'API.getBulkRequest',
-            'urls': requests
+            'urls[]': [urlencode(r) for r in requests]
         }
-        return self.request(http_method=http_method, **request_args)
+        return self.request(**request_args)
 
 
 class PiwikAPIError(Exception):

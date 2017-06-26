@@ -36,12 +36,15 @@ class BaseModule:
 def api_method(func):
     """Decorator for all API call methods."""
     @wraps(func)
-    def decorator(self, *args, **kwargs):
+    def decorator(self, return_request_args=False, *args, **kwargs):
         request_args = func(self, *args, **kwargs)
         request_args.update({
             'method': '{module}.{method}'.format(
                 module=self.__class__.__name__,
                 method=func.__name__)})
         request_args = self._preprocess(request_args)
-        return self.pa.request(**request_args)
+        if return_request_args:
+            return request_args
+        else:
+            return self.pa.request(**request_args)
     return decorator

@@ -14,7 +14,7 @@ setup(
     name='piwik-api',
     description='Client library for the Piwik Reporting API',
     long_description=read('README.rst'),
-    version='0.1.1',
+    version='0.1.2',
     author='Anton Sarukhanov',
     author_email='code@ant.sr',
     url='https://github.com/antsar/piwik-api',
