@@ -22,7 +22,7 @@ setup(
     license='MIT',
     packages=find_packages(),
     install_requires=[
-        'requests==2.20.0',
+        'requests==2.31.0',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
